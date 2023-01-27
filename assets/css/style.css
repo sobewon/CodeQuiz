@@ -50,7 +50,7 @@ select {
   background-color: whitesmoke;
 }
 
-.game {
+.card, .game {
   background-color:	#FFFFE0;
   border: 1px solid #eceff1;
   border-radius: 8px;
@@ -62,22 +62,10 @@ select {
   float: left;
 }
 
-.game::after {
-  content: " ";
-  display: block;
-  clear: both;
-}
-
 #msg {
   display: block;
   min-height: 100px;
   width: 100%;
   margin-top: 10px;
   background-color: whitesmoke;
-}
-
-@media only screen and (max-width: 800px) {
-  .game{
-    width: 80vw;
-  }
 }

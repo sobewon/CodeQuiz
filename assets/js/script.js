@@ -1,19 +1,24 @@
-var wordbank = ["ladder", "postoffice", "utilize"]
 
 
-var win = document.getElementById("wins");
-var loss = document.getElementById("losses");
 
+var secondsLeft = 60;
 
-var saveButton = document.getElementById("save");
-var savedScore = document.getElementById("saved-win");
-
-var word = wordbank[Math.floor(Math.random() * wordbank.length)]
-console.log(word)
-
+// Timer function for  countdown after clicking "Start Game" button
 function timer() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft + " seconds left till colorsplosion.";
 
+    if(secondsLeft === 0) {
+      // Stops execution of action at set interval
+      clearInterval(timerInterval);
+      // Calls function to create and append image
+      sendMessage();
+    }
+
+  }, 1000);
 }
+
 
 
 
