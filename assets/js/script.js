@@ -2,6 +2,11 @@
 var timeEl = document.getElementById("time");
 const startGame = document.getElementById("startGame");
 
+//correct answer
+const correctA = document.getElementById("correct");
+//wrong answer
+const wrongA = document.getElementById("wrong");
+
 const tempTime = 5;
 var secondsLeft = tempTime;
 // Timer function for  countdown after clicking "Start Game" button
@@ -47,7 +52,9 @@ function startToggle() {
 }
 
 //function to collect score + show/hide next question + adjust timer count
-function score
+function score() {
+
+}
 
 
 
