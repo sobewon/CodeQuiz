@@ -18,6 +18,7 @@ function timer() {
       secondsLeft = tempTime;
 
       outOfTime()
+      qListToggle("qlist")
     }
 
   }, 1000);
@@ -29,18 +30,32 @@ function outOfTime() {
 
 var question = document.getElementById("question-container");
 
-function showQuestion() {
-  
+function qListToggle(elementid) {
+  var qlist = document.getElementById(elementid)
+
+  if (qlist.classList.contains('d-none')) {
+    qlist.classList.remove('d-none')
+  }
+  else {
+    qlist.classList.add('d-none')
+  }
 }
 
+function startToggle() {
+  qListToggle("qlist")
+  timer()
+}
+
+//function to collect score + show/hide next question + adjust timer count
+function score
 
 
 
 
 
 
-
-startGame.addEventListener("click", timer)
+startGame.addEventListener("click", startToggle)
+//startGame.addEventListener("click", timer)
 
 
 
