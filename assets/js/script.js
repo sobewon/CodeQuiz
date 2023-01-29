@@ -12,10 +12,10 @@ var secondsLeft = tempTime;
 // Timer function for  countdown after clicking "Start Game" button
 function timer() {
   var timerInterval = setInterval(function() {
-    secondsLeft--;
     timeEl.textContent = "GAME OVER in " + secondsLeft + " seconds.";
- 
-    if(secondsLeft === -1) {
+    secondsLeft--;
+    score()
+    if(secondsLeft === -2) {
       // Stops execution of action at set interval
       clearInterval(timerInterval);
       // Calls function to create and append image
@@ -29,6 +29,7 @@ function timer() {
   }, 1000);
 }
 
+//function to clear timer
 function outOfTime() {
   timeEl.textContent = " ";
 }
@@ -44,19 +45,36 @@ function qListToggle(elementid) {
   else {
     qlist.classList.add('d-none')
   }
+  console.log(correctA)
+  console.log(wrongA)
 }
 
 function startToggle() {
-  qListToggle("qlist")
   timer()
+  qListToggle("qlist")
 }
 
+
+var userScore = 0
 //function to collect score + show/hide next question + adjust timer count
 function score() {
-
+  //question.addEventListener("click", qListToggle)
+  correctA.onclick = function() {
+    userScore++;
+    console.log(userScore)
+  }
+  wrongA.onclick = function() {
+    userScore--;
+    if (userScore <= 0) {
+      userScore = 0;
+    }
+    console.log(userScore)
+  }
 }
 
-
+function updateScore() {
+  console.log("updateScore not implemented yet")
+}
 
 
 
