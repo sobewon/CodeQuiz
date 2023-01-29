@@ -36,11 +36,12 @@ function timer() {
       // Stops execution of action at set interval
       clearInterval(timerInterval);
       // Calls function to create and append image
-      alert("GAME OVER!");
+      confirm("GAME OVER! \nYour score was " + userScore);
       secondsLeft = tempTime;
 
       outOfTime()
       qListToggle("qlist")
+      localStorage.setItem("userScore", userScore);
     }
 
   }, 1000);
@@ -88,10 +89,6 @@ function score(i, timerInterval) {
     console.log(i)
     correctA[j].onclick = function() {
       userScore++;
-      //console.log(j + " istart")
-      //console.log(userScore + " us")
-      //console.log(correctA[j].id + " curCA ID")
-      //console.log(qID[j].id + " cur qID ID")
       qListToggle(qID[j].id)
       
       if (userScore <= 4) {
@@ -105,12 +102,11 @@ function score(i, timerInterval) {
         }
         if (userScore == 4) {
           console.log(userScore)
+          secondsLeft = -2
           return
         }
         score()
       }
-      
-      //return i;
     }
     wrongA[j].onclick = function() {
       //clearInterval(timerInterval);
@@ -120,10 +116,17 @@ function score(i, timerInterval) {
     }
     console.log(i)
   }
+  if (j == 4) {
+    console.log(userScore)
+    secondsLeft = -2
+    return
+  }
 }
 
 function showScore() {
   console.log("showScore not implemented yet")
+  var savedScore = localStorage.getItem("userScore");
+  var savedScore = parseInt(localStorage.getItem("userScore"));
 }
 
 
