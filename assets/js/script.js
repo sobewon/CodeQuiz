@@ -1,10 +1,12 @@
 
 var timeEl = document.getElementById("time");
 const startGame = document.getElementById("startGame");
-
+var curUserScore;
 var timerInterval;
 var userScore = 0
-j = 0;
+var j = 0;
+var highScores = []
+//userName = []
 
 //correct answer
 const correctA = [document.getElementById("q1c"),
@@ -36,17 +38,25 @@ function timer() {
       // Stops execution of action at set interval
       clearInterval(timerInterval);
       // Calls function to create and append image
-      confirm("GAME OVER! \nYour score was " + userScore);
+      if (confirm("GAME OVER! \nYour score was " + userScore + "\n Would you like to save your score?")) {
+        var initials = prompt("Please enter Initials: ")
+        //localStorage.setItem("userName", initials);
+        //curUserScore = initials + " " + userScore
+
+        //localStorage.setItem("userScores", JSON.stringify(curUserScore))
+        //console.log(curUserScore)
+        saveScore(initials)
+        
+      }
       secondsLeft = tempTime;
 
       outOfTime()
       qListToggle("qlist")
-      localStorage.setItem("userScore", userScore);
+      //localStorage.setItem("userScore", userScore);
     }
 
   }, 1000);
     //score()
-    console.log("score ran")
 }
 
 //function to clear timer
@@ -74,34 +84,28 @@ function startToggle() {
   timer()
   qListToggle("qlist")
   for (var i = 0; i < 2; i++) {
-    score(i, timerInterval);
-    console.log(i + " ran")
+    score(i);
   }  
-  console.log("running")
 }
 
 
 
 //function to collect score + show/hide next question + adjust timer count
-function score(i, timerInterval) {
+function score(i) {
   //question.addEventListener("click", qListToggle)
   if (j < 4) {
-    console.log(i)
     correctA[j].onclick = function() {
       userScore++;
       qListToggle(qID[j].id)
       
       if (userScore <= 4) {
         j++
-        console.log(j + "F")
         if (userScore < 4) {
           if (j < 4) {
             qListToggle(qID[j].id)
-            console.log(userScore)
           }
         }
         if (userScore == 4) {
-          console.log(userScore)
           secondsLeft = -2
           return
         }
@@ -109,28 +113,31 @@ function score(i, timerInterval) {
       }
     }
     wrongA[j].onclick = function() {
-      //clearInterval(timerInterval);
       secondsLeft = secondsLeft - 8;
       userScore--;
-      console.log(userScore)
     }
-    console.log(i)
+
   }
   if (j == 4) {
-    console.log(userScore)
     secondsLeft = -2
     return
   }
 }
 
-function showScore() {
-  console.log("showScore not implemented yet")
-  var savedScore = localStorage.getItem("userScore");
-  var savedScore = parseInt(localStorage.getItem("userScore"));
+function saveScore(initials) {
+  //var highScores = localStorage.getItem("userScores")
+  var storedScores = JSON.parse(localStorage.getItem("userScores"));
+  curUserScore = initials + " " + userScore
+  if (storedScores == null) {
+    storedScores = []
+  }
+
+  storedScores.push(curUserScore)
+  localStorage.setItem("userScores", JSON.stringify(storedScores))
+
 }
 
-
-
+function displayScore()
 
 startGame.addEventListener("click", startToggle)
 //startGame.addEventListener("click", timer)
