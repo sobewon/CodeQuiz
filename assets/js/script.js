@@ -8,7 +8,6 @@ var timerInterval;
 var userScore = 0
 var j = 0;
 var highScores = []
-//userName = []
 
 //correct answer
 const correctA = [document.getElementById("q1c"),
@@ -42,11 +41,6 @@ function timer() {
       // Calls function to create and append image
       if (confirm("GAME OVER! \nYour score was " + userScore + "\n Would you like to save your score?")) {
         var initials = prompt("Please enter Initials: ")
-        //localStorage.setItem("userName", initials);
-        //curUserScore = initials + " " + userScore
-
-        //localStorage.setItem("userScores", JSON.stringify(curUserScore))
-        //console.log(curUserScore)
         saveScore(initials)
                 
       }
@@ -70,8 +64,6 @@ var question = document.getElementById("question-container");
 
 function qListToggle(elementid) {
   var qlist = document.getElementById(elementid)
-  //console.log(qlist)
-
   if (qlist.classList.contains('d-none')) {
     qlist.classList.remove('d-none')
   }
@@ -125,7 +117,6 @@ function score(i) {
 }
 
 function saveScore(initials) {
-  //var highScores = localStorage.getItem("userScores")
   curUserScore = initials + " " + userScore
   if (storedScores == null) {
     storedScores = []
@@ -150,8 +141,6 @@ function displayScore() {
 
 displayScore()
 startGame.addEventListener("click", startToggle)
-//startGame.addEventListener("click", timer)
-
 
 
 
