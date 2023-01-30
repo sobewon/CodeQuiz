@@ -26,3 +26,6 @@ During quiz w/ countdown and 1 question (only 1 question will appear at a time)
 
 ![Full size website](./assets/images/duringQuiz.png)
 
+## Link to live page
+
+https://sobewon.github.io/CodeQuiz/
