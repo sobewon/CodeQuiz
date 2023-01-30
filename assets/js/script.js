@@ -1,6 +1,8 @@
 
 var timeEl = document.getElementById("time");
 const startGame = document.getElementById("startGame");
+var apList = document.getElementById("")
+var storedScores = JSON.parse(localStorage.getItem("userScores"));
 var curUserScore;
 var timerInterval;
 var userScore = 0
@@ -46,7 +48,7 @@ function timer() {
         //localStorage.setItem("userScores", JSON.stringify(curUserScore))
         //console.log(curUserScore)
         saveScore(initials)
-        
+                
       }
       secondsLeft = tempTime;
 
@@ -76,8 +78,6 @@ function qListToggle(elementid) {
   else {
     qlist.classList.add('d-none')
   }
-  //console.log(correctA)
-  //console.log(wrongA)
 }
 
 function startToggle() {
@@ -126,19 +126,29 @@ function score(i) {
 
 function saveScore(initials) {
   //var highScores = localStorage.getItem("userScores")
-  var storedScores = JSON.parse(localStorage.getItem("userScores"));
   curUserScore = initials + " " + userScore
   if (storedScores == null) {
     storedScores = []
   }
-
   storedScores.push(curUserScore)
   localStorage.setItem("userScores", JSON.stringify(storedScores))
+  location.reload();
+}
+
+function displayScore() {
+  if (storedScores != null) {
+    for (i=0; i < storedScores.length; i++) { 
+      const node = document.createElement("li");
+      node.className = "row justify-content-center"
+      const textnode = document.createTextNode(storedScores[i]);
+      node.appendChild(textnode);
+      document.getElementById("highScores").appendChild(node);
+    }
+  }
 
 }
 
-function displayScore()
-
+displayScore()
 startGame.addEventListener("click", startToggle)
 //startGame.addEventListener("click", timer)
 
