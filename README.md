@@ -1,52 +1,28 @@
-# CodeQuiz
+# John Magnuson
+
+## CodeQuiz
 Mod 4 Web APIs Challenge: Code Quiz
 
+## Languages Used:
+JS w/ bootstrap
+HTML
 
-# User Story
-AS A coding boot camp student
+## Screenshots of site
 
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
+before taking quiz
 
-SO THAT I can gauge my progress compared to my peers
+![Full size website](./assets/images/beforeScores.png)
 
+1 Score
 
-# Acceptance Criteria
-
-GIVEN I am taking a code quiz
-
-WHEN I click the start button
-
-THEN a timer starts and I am presented with a question
-
-WHEN I answer a question
-
-THEN I am presented with another question
-
-WHEN I answer a question incorrectly
-
-THEN time is subtracted from the clock
-
-WHEN all questions are answered or the timer reaches 0
-
-THEN the game is over
-
-WHEN the game is over
-
-THEN I can save my initials and score
+![Full size website](./assets/images/firstScore.png)
 
 
-## 💡 Notes
+Multiple Scores
 
-Refer to the documentation:
+![Full size website](./assets/images/multipleScores.png)
 
-* [MDN Web Docs on KeyboardEvent](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+During quiz w/ countdown and 1 question (only 1 question will appear at a time)
 
-* [MDN Web Docs on Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+![Full size website](./assets/images/duringQuiz.png)
 
-* [MDN Web Docs on loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
-
-* [MDN Web Docs on setInterval()](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval)
-
-* [MDN Web Docs on clearInterval()](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/clearInterval)
-
-* [MDN Web Docs on localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
